@@ -13,4 +13,10 @@
   <ItemGroup>
     <Content Remove="appsettings.Staging.json" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="DTO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
+  </ItemGroup>
 </Project>
