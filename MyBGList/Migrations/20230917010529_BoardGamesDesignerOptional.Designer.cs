@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyBGList.Models;
 
@@ -11,9 +12,10 @@ using MyBGList.Models;
 namespace MyBGList.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230917010529_BoardGamesDesignerOptional")]
+    partial class BoardGamesDesignerOptional
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,6 +76,9 @@ namespace MyBGList.Migrations
                     b.Property<int>("PlayTime")
                         .HasColumnType("int");
 
+                    b.Property<int>("PublisherId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("RatingAverage")
                         .HasPrecision(4, 2)
                         .HasColumnType("decimal(4,2)");
@@ -85,6 +90,8 @@ namespace MyBGList.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PublisherId");
 
                     b.ToTable("BoardGames");
                 });
@@ -190,6 +197,7 @@ namespace MyBGList.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Notes")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -221,6 +229,7 @@ namespace MyBGList.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Notes")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -229,10 +238,45 @@ namespace MyBGList.Migrations
                     b.ToTable("Mechanics");
                 });
 
+            modelBuilder.Entity("MyBGList.Models.Publisher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LastModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Publishers");
+                });
+
+            modelBuilder.Entity("MyBGList.Models.BoardGame", b =>
+                {
+                    b.HasOne("MyBGList.Models.Publisher", "Publisher")
+                        .WithMany("BoardGames")
+                        .HasForeignKey("PublisherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Publisher");
+                });
+
             modelBuilder.Entity("MyBGList.Models.BoardGames_Categories", b =>
                 {
                     b.HasOne("MyBGList.Models.BoardGame", "BoardGame")
-                        .WithMany()
+                        .WithMany("BoardGames_Categories")
                         .HasForeignKey("BoardGameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -288,6 +332,8 @@ namespace MyBGList.Migrations
 
             modelBuilder.Entity("MyBGList.Models.BoardGame", b =>
                 {
+                    b.Navigation("BoardGames_Categories");
+
                     b.Navigation("BoardGames_Domains");
 
                     b.Navigation("BoardGames_Mechanics");
@@ -306,6 +352,11 @@ namespace MyBGList.Migrations
             modelBuilder.Entity("MyBGList.Models.Mechanic", b =>
                 {
                     b.Navigation("BoardGames_Mechanics");
+                });
+
+            modelBuilder.Entity("MyBGList.Models.Publisher", b =>
+                {
+                    b.Navigation("BoardGames");
                 });
 #pragma warning restore 612, 618
         }

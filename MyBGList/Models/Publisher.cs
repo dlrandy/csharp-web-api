@@ -8,7 +8,7 @@ namespace MyBGList.Models
 	{
             [Key]
             [Required]
-            public int Id { get; set; }
+        public int Id { get; set; }
 
             [Required]
             [MaxLength(200)]
@@ -20,7 +20,7 @@ namespace MyBGList.Models
             [Required]
             public DateTime LastModifiedDate { get; set; }
 
-        public ICollection<BoardGame>? BoardGames { get; set; }
+        //public ICollection<BoardGame>? BoardGames { get; set; }
     
 	}
 }

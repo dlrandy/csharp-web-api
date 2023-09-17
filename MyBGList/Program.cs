@@ -68,23 +68,23 @@ app.MapGet("/error", () => Results.Problem()).RequireCors("AnyOrigin");
 app.MapGet("/error/test", () => { throw new Exception("test"); }).RequireCors("AnyOrigin");
 app.MapGet("/minimal-error", [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)] () => Results.Problem());
 app.MapGet("/minimal-error/test", [EnableCors("AnyOrigin")][ResponseCache(NoStore =true)] () => Results.Problem());
-app.MapGet("/BoardGames", () => new[] {
-            new BoardGame(){
-            Id = 1,
-            Name = "Axis & Allies",
-            Year = 1981
-            },
-             new BoardGame(){
-            Id = 2,
-            Name = "Citadels",
-            Year = 2000
-            },
-              new BoardGame(){
-            Id = 3,
-            Name = "Terraforming Mars",
-            Year = 2016
-            },
-        });
+//app.MapGet("/BoardGames", () => new[] {
+//            new BoardGame(){
+//            Id = 1,
+//            Name = "Axis & Allies",
+//            Year = 1981
+//            },
+//             new BoardGame(){
+//            Id = 2,
+//            Name = "Citadels",
+//            Year = 2000
+//            },
+//              new BoardGame(){
+//            Id = 3,
+//            Name = "Terraforming Mars",
+//            Year = 2016
+//            },
+//        });
 
 
 app.MapGet("/cod/test", [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)] ()=>

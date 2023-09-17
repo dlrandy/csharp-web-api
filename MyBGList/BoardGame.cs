@@ -1,7 +1,7 @@
 ﻿using System;
 namespace MyBGList
 {
-	public class BoardGame
+	public class BoardGameBK
 	{
 		public int Id { get; set; }
 		public string? Name { get; set; }

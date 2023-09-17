@@ -46,28 +46,28 @@ namespace MyBGList.Models
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<BoardGame>()
-                .HasOne(x => x.Publisher)
-                .WithMany(y => y.BoardGames)
-                .HasForeignKey(f => f.PublisherId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<BoardGame>()
+            //    .HasOne(x => x.Publisher)
+            //    .WithMany(y => y.BoardGames)
+            //    .HasForeignKey(f => f.PublisherId)
+            //    .IsRequired()
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<BoardGames_Categories>()
                 .HasKey(i => new { i.BoardGameId, i.CategoryId });
 
-            modelBuilder.Entity<BoardGames_Categories>()
-                .HasOne(x => x.BoardGame)
-                .WithMany(y => y.BoardGames_Categories)
-                .HasForeignKey(f => f.BoardGameId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<BoardGames_Categories>()
-                .HasOne(x => x.Category)
-                .WithMany(y => y.BoardGames_Categories)
-                .HasForeignKey(f => f.CategoryId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<BoardGames_Categories>()
+            //    .HasOne(x => x.BoardGame)
+            //    .WithMany(y => y.BoardGames_Categories)
+            //    .HasForeignKey(f => f.BoardGameId)
+            //    .IsRequired()
+            //    .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<BoardGames_Categories>()
+            //    .HasOne(x => x.Category)
+            //    .WithMany(y => y.BoardGames_Categories)
+            //    .HasForeignKey(f => f.CategoryId)
+            //    .IsRequired()
+            //    .OnDelete(DeleteBehavior.Cascade);
 
 
         }
@@ -76,8 +76,8 @@ namespace MyBGList.Models
         public DbSet<Mechanic> Mechanics => Set<Mechanic>();
         public DbSet<BoardGames_Domains> BoardGames_Domains => Set<BoardGames_Domains>();
         public DbSet<BoardGames_Mechanics> BoardGames_Mechanics => Set<BoardGames_Mechanics>();
-        public DbSet<Publisher> Publisher => Set<Publisher>();
-        public DbSet<BoardGames_Categories> BoardGames_Categories => Set<BoardGames_Categories>();
+        //public DbSet<Publisher> Publisher => Set<Publisher>();
+        //public DbSet<BoardGames_Categories> BoardGames_Categories => Set<BoardGames_Categories>();
     }
 }
 
