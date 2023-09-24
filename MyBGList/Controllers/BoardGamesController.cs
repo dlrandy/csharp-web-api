@@ -3,6 +3,9 @@ using MyBGList.DTO;
 using MyBGList.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
+using System.ComponentModel.DataAnnotations;
+using MyBGList.Attributes;
+
 namespace MyBGList.Controllers;
 
 [ApiController]
@@ -25,32 +28,40 @@ public class BoardGameController : ControllerBase
     [HttpGet(Name = "GetBoardGames")]
     [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
     public async Task<RestDTO<BoardGame[]>> Get(
-        int pageIndex = 0,
-        int pageSize = 10,
-        string? sortColumn = "Name",
-        string? sortOrder = "ASC",
-        string? filterQuery = null
+        //int pageIndex = 0,
+        //[Range(1, 100)] int pageSize = 10,
+        ////[RegularExpression("ASC|DESC")]string? sortOrder = "ASC",
+        //[SortOrderValidator(
+        //    ErrorMessage = "Value should be one the following: {0}.",
+        //    AllowedValues = new[] {"ASC", "DESC","OtherString"}),
+        //] string? sortOrder = "ASC",
+        ////string? sortColumn = "Name",
+        //[
+        //    SortColumnValidator(typeof(BoardGameDTO))
+        //] string? sortColumn = "Name",
+        //string? filterQuery = null
+        [FromQuery] RequestDTO<BoardGameDTO> input
         )
     {
 
         var query = _context.BoardGames.AsQueryable();
-        if (!string.IsNullOrEmpty(filterQuery)) {
-            query = query.Where(b => b.Name.Contains(filterQuery));
+        if (!string.IsNullOrEmpty(input.FilterQuery)) {
+            query = query.Where(b => b.Name.Contains(input.FilterQuery));
         }
         var recordCount = await query.CountAsync();
                 //.OrderBy(b => b.Name)
-        query = query.OrderBy($"{sortColumn} {sortOrder}")
-                .Skip(pageIndex * pageSize)
-                .Take(pageSize);
+        query = query.OrderBy($"{input.SortColumn} {input.SortOrder}")
+                .Skip(input.PageIndex * input.PageSize)
+                .Take(input.PageSize);
         var data = await query.ToArrayAsync();
         return new RestDTO<BoardGame[]>() {
             Data = data,
-            PageIndex = pageIndex,
-            PageSize = pageSize,
+            PageIndex = input.PageIndex,
+            PageSize = input.PageSize,
             RecordCount = recordCount,
             Links = new List<LinkDTO>() {
                new LinkDTO(
-                   Url.Action(null, "BoardGames", new { pageIndex, pageSize }, Request.Scheme)!,
+                   Url.Action(null, "BoardGames", new { input.PageIndex, input.PageSize }, Request.Scheme)!,
                    "self",
                    "GET"
                    )

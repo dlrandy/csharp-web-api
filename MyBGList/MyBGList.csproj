@@ -27,11 +27,15 @@
     <None Remove="Models\" />
     <None Remove="Models\Csv\" />
     <None Remove="Data\" />
+    <None Remove="Attributes\" />
+    <None Remove="Swagger\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Csv\" />
     <Folder Include="Data\" />
+    <Folder Include="Attributes\" />
+    <Folder Include="Swagger\" />
   </ItemGroup>
 </Project>
