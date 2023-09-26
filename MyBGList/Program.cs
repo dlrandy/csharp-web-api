@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyBGList.Models;
@@ -71,7 +73,47 @@ if (app.Configuration.GetValue<bool>("UseDeveloperExceptionPage")) {
     app.UseDeveloperExceptionPage();
 }
 else {
-    app.UseExceptionHandler("/error");
+    // instead of delegating the exception handling process to a custom endpoint
+    //app.UseExceptionHandler("/error");
+
+    app.UseExceptionHandler(action => {
+
+        action.Run(async (context) => {
+            var exceptionHandler = context.Features.Get<IExceptionHandlerPathFeature>();
+            // TODO: logging sending notifications, and more
+            var details = new ProblemDetails();
+            details.Detail = exceptionHandler?.Error.Message;
+            details.Extensions["traceId"] =
+                    System.Diagnostics.Activity.Current?.Id
+                      ?? context.TraceIdentifier;
+
+            if (exceptionHandler?.Error is NotImplementedException)
+            {
+                details.Type =
+                    "https://tools.ietf.org/html/rfc7231#section-6.6.2";
+                details.Status = StatusCodes.Status501NotImplemented;
+            }
+            else if (exceptionHandler?.Error is TimeoutException)
+            {
+                details.Type =
+                    "https://tools.ietf.org/html/rfc7231#section-6.6.5";
+                details.Status = StatusCodes.Status504GatewayTimeout;
+            }
+            else
+            {
+                details.Type =
+                    "https://tools.ietf.org/html/rfc7231#section-6.6.1";
+                details.Status = StatusCodes.Status500InternalServerError;
+            }
+            //return Results.Problem(details);
+            await context.Response.WriteAsJsonAsync(details);
+            Console.WriteLine("-------");
+            //await context.Response.WriteAsync(
+            //System.Text.Json.JsonSerializer.Serialize(details));
+
+        });
+
+    });
 }
 
 // 中间件添加的顺序就是调用的顺序
@@ -83,8 +125,48 @@ app.UseCors("AnyOrigin");
 app.UseAuthorization();
 
 // minimal apis
-app.MapGet("/error", () => Results.Problem()).RequireCors("AnyOrigin");
-app.MapGet("/error/test", () => { throw new Exception("test"); }).RequireCors("AnyOrigin");
+// 端点路由中间件是app 级别
+//app.MapGet("/error", () => Results.Problem()).RequireCors("AnyOrigin");
+app.MapPost("/error", [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)] (HttpContext context) =>
+{
+    var exceptionHandler = context.Features.Get<IExceptionHandlerPathFeature>();
+    // TODO: logging sending notifications, and more
+    var details = new ProblemDetails();
+    details.Detail = exceptionHandler?.Error.Message;
+    details.Extensions["traceId"] =
+            System.Diagnostics.Activity.Current?.Id
+              ?? context.TraceIdentifier;
+    details.Type =
+        "https://tools.ietf.org/html/rfc7231#section-6.6.1";
+    details.Status = StatusCodes.Status500InternalServerError;
+    return Results.Problem(details);
+
+});
+app.MapGet("/error", [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)] (HttpContext context) => {
+    var exceptionHandler = context.Features.Get<IExceptionHandlerPathFeature>();
+    // TODO: logging sending notifications, and more
+    var details = new ProblemDetails();
+    details.Detail = exceptionHandler?.Error.Message;
+    details.Extensions["traceId"] =
+            System.Diagnostics.Activity.Current?.Id
+              ?? context.TraceIdentifier;
+    details.Type =
+        "https://tools.ietf.org/html/rfc7231#section-6.6.1";
+    details.Status = StatusCodes.Status500InternalServerError;
+    return Results.Problem(details);
+
+});
+app.MapGet("/error/test/501",
+    [EnableCors("AnyOrigin")]
+[ResponseCache(NoStore = true)] () =>
+    { throw new NotImplementedException("test 501"); });
+
+app.MapGet("/error/test/504",
+    [EnableCors("AnyOrigin")]
+[ResponseCache(NoStore = true)] () =>
+    { throw new TimeoutException("test 504"); });
+app.MapGet("/error/test1", () => { throw new Exception("test"); }).RequireCors("AnyOrigin");
+app.MapPost("/error/test1", () => { throw new Exception("test post"); }).RequireCors("AnyOrigin");
 app.MapGet("/minimal-error", [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)] () => Results.Problem());
 app.MapGet("/minimal-error/test", [EnableCors("AnyOrigin")][ResponseCache(NoStore =true)] () => Results.Problem());
 //app.MapGet("/BoardGames", () => new[] {

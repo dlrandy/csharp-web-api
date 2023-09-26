@@ -27,6 +27,7 @@ namespace MyBGList.Controllers
 
         [HttpGet(Name = "GetMechanics")]
         [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
+        [ManualValidationFilter]
         public async Task<RestDTO<Mechanic[]>> Get(
             [FromQuery] RequestDTO<MechanicDTO> input)
         {
@@ -54,6 +55,69 @@ namespace MyBGList.Controllers
                             Request.Scheme)!,
                         "self",
                         "GET"),
+                }
+            };
+        }
+
+        [HttpPost(Name = "UpdateMechanic")]
+        [ResponseCache(NoStore = true)]
+        public async Task<RestDTO<Mechanic?>> Post(MechanicDTO model)
+        {
+            var mechanic = await _context.Mechanics
+                .Where(b => b.Id == model.Id)
+                .FirstOrDefaultAsync();
+            if (mechanic != null)
+            {
+                if (!string.IsNullOrEmpty(model.Name))
+                    mechanic.Name = model.Name;
+                mechanic.LastModifiedDate = DateTime.Now;
+                _context.Mechanics.Update(mechanic);
+                await _context.SaveChangesAsync();
+            };
+
+            return new RestDTO<Mechanic?>()
+            {
+                Data = mechanic,
+                Links = new List<LinkDTO>
+                {
+                    new LinkDTO(
+                            Url.Action(
+                                null,
+                                "Mechanics",
+                                model,
+                                Request.Scheme)!,
+                            "self",
+                            "POST"),
+                }
+            };
+        }
+
+        [HttpDelete(Name = "DeleteMechanic")]
+        [ResponseCache(NoStore = true)]
+        public async Task<RestDTO<Mechanic?>> Delete(int id)
+        {
+            var mechanic = await _context.Mechanics
+                .Where(b => b.Id == id)
+                .FirstOrDefaultAsync();
+            if (mechanic != null)
+            {
+                _context.Mechanics.Remove(mechanic);
+                await _context.SaveChangesAsync();
+            };
+
+            return new RestDTO<Mechanic?>()
+            {
+                Data = mechanic,
+                Links = new List<LinkDTO>
+                {
+                    new LinkDTO(
+                            Url.Action(
+                                null,
+                                "Mechanics",
+                                id,
+                                Request.Scheme)!,
+                            "self",
+                            "DELETE"),
                 }
             };
         }

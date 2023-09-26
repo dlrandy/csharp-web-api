@@ -5,7 +5,8 @@ namespace MyBGList.Controllers;
 [ApiController]
 public class ErrorController : ControllerBase
 {
-    [Route("/error")]
+    // 在这里是controller处理错误和特定的路由，会覆盖到中间件的处理方式
+    [Route("/error1")]
     [HttpGet]
     public IActionResult Error() {
         return Problem();
