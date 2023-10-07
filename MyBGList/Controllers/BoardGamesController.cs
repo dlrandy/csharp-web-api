@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
 using System.ComponentModel.DataAnnotations;
 using MyBGList.Attributes;
-
+using MyBGList.Constants;
 namespace MyBGList.Controllers;
 
 [ApiController]
@@ -43,7 +43,10 @@ public class BoardGameController : ControllerBase
         [FromQuery] RequestDTO<BoardGameDTO> input
         )
     {
-
+        _logger.LogInformation(CustomLogEvents.BoardGamesController_Get,"Get method started! [{MachineName}] [{ThreadId}].",
+            Environment.MachineName,
+            Environment.CurrentManagedThreadId
+            );
         var query = _context.BoardGames.AsQueryable();
         if (!string.IsNullOrEmpty(input.FilterQuery)) {
             query = query.Where(b => b.Name.Contains(input.FilterQuery));
