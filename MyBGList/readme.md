@@ -21,6 +21,11 @@ GO
  dotnet ef database update FirstUpgrade
 
 
+ 创建distributed mssql
+ ```sql
+ dotnet sql-cache create 'Server=localhost;Database=MyBGList; User Id=MyBGList;Password=MyS3cretP4$$; Integrated Security=False;MultipleActiveResultSets=True; TrustServerCertificate=True' dbo AppCache
+ ```
+
 
 
 

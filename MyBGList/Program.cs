@@ -101,6 +101,17 @@ builder.Services.AddControllers(options =>
         (x, y) => $"The value '{x}' is not valid for {y}.");
     options.ModelBindingMessageProvider.SetMissingKeyOrValueAccessor(
         () => $"A value is required.");
+
+    options.CacheProfiles.Add("NoCache", new CacheProfile() { NoStore = true});
+    options.CacheProfiles.Add("Any-60", new CacheProfile() {
+        Location = ResponseCacheLocation.Any,
+        Duration = 60
+    });
+    options.CacheProfiles.Add("Client-120", new CacheProfile() {
+        Location = ResponseCacheLocation.Client,
+        Duration = 120
+    });
+
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -118,6 +129,26 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => {
 
 });
 
+builder.Services.AddResponseCaching(options => {
+    options.MaximumBodySize = 32 * 1024 * 1024;
+    options.SizeLimit = 50 * 1024 * 1024;
+    options.UseCaseSensitivePaths = true;
+
+});
+
+builder.Services.AddMemoryCache();
+
+//builder.Services.AddDistributedSqlServerCache(options => {
+//    options.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//    options.SchemaName = "dbo";
+//    options.TableName = "AppCache";
+//});
+
+builder.Services.AddStackExchangeRedisCache(options => {
+
+    options.Configuration = builder.Configuration["Redis:ConnectionString"];
+
+});
 
 //builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
@@ -184,7 +215,18 @@ app.UseHttpsRedirection();
 app.UseCors();
 // 使用其他命名policy
 app.UseCors("AnyOrigin");
+
+app.UseResponseCaching();
 app.UseAuthorization();
+app.Use((context, next) => {
+    //context.Response.Headers["cache-control"] = "no-cache, no-store";
+    context.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
+
+        NoCache = true,
+        NoStore = true
+    };
+    return next.Invoke();
+});
 
 // minimal apis
 // 端点路由中间件是app 级别
@@ -262,6 +304,22 @@ Results.Text("<script>" +
         "</script>" +
         "<noscript>Your client does not support JavaScript</noscript>",
         "text/html"));
+
+
+app.MapGet("/cache/test/1",
+    [EnableCors("AnyOrigin")]
+    (HttpContext context) => {
+        context.Response.Headers["cache-control"] = "no-cache, no-store";
+        return Results.Ok();
+    });
+
+app.MapGet("/cache/test/2",
+    [EnableCors("AnyOrigin")]
+    (HttpContext context) => {
+        //context.Response.Headers["cache-control"] = "no-cache, no-store";
+        return Results.Ok();
+    });
+
 // controllers
 app.MapControllers().RequireCors("AnyOrigin");
 

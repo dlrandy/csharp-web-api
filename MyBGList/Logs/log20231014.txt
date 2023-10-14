@@ -1,0 +1,152 @@
+11:47:07 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+11:47:07 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+11:47:07 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+11:47:07 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+11:47:07 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+11:51:08 [INF] [MacBook-Pro #14 .NET ThreadPool Worker ] Get method started! [MacBook-Pro] [14].
+11:51:10 [INF] [MacBook-Pro #14 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+11:51:11 [INF] [MacBook-Pro #14 .NET ThreadPool Worker ] Executed DbCommand (167ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BoardGames] AS [b]
+11:51:27 [INF] [MacBook-Pro #17 .NET ThreadPool Worker ] Executed DbCommand (129ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[AlternateNames], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[Designer], [b].[Flags], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+ORDER BY [b].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+11:52:45 [INF] [MacBook-Pro #21 .NET ThreadPool Worker ] Get method started! [MacBook-Pro] [21].
+11:52:45 [INF] [MacBook-Pro #21 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+11:52:45 [INF] [MacBook-Pro #17 .NET ThreadPool Worker ] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BoardGames] AS [b]
+11:52:50 [INF] [MacBook-Pro #17 .NET ThreadPool Worker ] Executed DbCommand (119ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[AlternateNames], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[Designer], [b].[Flags], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+ORDER BY [b].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+11:53:03 [INF] [MacBook-Pro #22 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+11:53:03 [INF] [MacBook-Pro #17 .NET ThreadPool Worker ] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Domains] AS [d]
+11:53:03 [INF] [MacBook-Pro #24 .NET ThreadPool Worker ] Executed DbCommand (49ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedDate], [d].[Flags], [d].[LastModifiedDate], [d].[Name], [d].[Notes]
+FROM [Domains] AS [d]
+ORDER BY [d].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+12:03:23 [INF] [MacBook-Pro #35 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+12:03:24 [INF] [MacBook-Pro #39 .NET ThreadPool Worker ] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+12:03:29 [INF] [MacBook-Pro #38 .NET ThreadPool Worker ] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+12:05:28 [INF] [MacBook-Pro #38 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+12:05:28 [INF] [MacBook-Pro #51 .NET ThreadPool Worker ] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+12:05:50 [INF] [MacBook-Pro #52 .NET ThreadPool Worker ] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+20:55:48 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+20:55:49 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+20:55:49 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:55:49 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:55:49 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:56:09 [INF] [MacBook-Pro #10 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+20:56:10 [INF] [MacBook-Pro #10 .NET ThreadPool Worker ] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+20:56:33 [INF] [MacBook-Pro #25 .NET ThreadPool Worker ] Executed DbCommand (119ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+20:58:33 [INF] [MacBook-Pro #31 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+20:58:33 [INF] [MacBook-Pro #25 .NET ThreadPool Worker ] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+20:58:40 [INF] [MacBook-Pro #32 .NET ThreadPool Worker ] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:00:25 [INF] [MacBook-Pro #40 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:00:25 [INF] [MacBook-Pro #44 .NET ThreadPool Worker ] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:00:31 [INF] [MacBook-Pro #46 .NET ThreadPool Worker ] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:01:56 [INF] [MacBook-Pro #51 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:01:56 [INF] [MacBook-Pro #52 .NET ThreadPool Worker ] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:02:01 [INF] [MacBook-Pro #51 .NET ThreadPool Worker ] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:03:13 [INF] [MacBook-Pro #53 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:03:13 [INF] [MacBook-Pro #62 .NET ThreadPool Worker ] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:03:18 [INF] [MacBook-Pro #53 .NET ThreadPool Worker ] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:13:04 [INF] [MacBook-Pro #90 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:13:04 [INF] [MacBook-Pro #90 .NET ThreadPool Worker ] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:16:33 [INF] [MacBook-Pro #91 .NET ThreadPool Worker ] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:22:16 [INF] [MacBook-Pro #113 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:22:16 [INF] [MacBook-Pro #114 .NET ThreadPool Worker ] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:22:31 [INF] [MacBook-Pro #107 .NET ThreadPool Worker ] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:26:10 [INF] [MacBook-Pro #133 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:26:10 [INF] [MacBook-Pro #132 .NET ThreadPool Worker ] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:26:15 [INF] [MacBook-Pro #132 .NET ThreadPool Worker ] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:30:23 [INF] [MacBook-Pro #122 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:30:23 [INF] [MacBook-Pro #116 .NET ThreadPool Worker ] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:30:28 [INF] [MacBook-Pro #115 .NET ThreadPool Worker ] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+21:35:40 [INF] [MacBook-Pro #101 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:35:40 [INF] [MacBook-Pro #97 .NET ThreadPool Worker ] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Mechanics] AS [m]
+21:35:47 [INF] [MacBook-Pro #105 .NET ThreadPool Worker ] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Flags], [m].[LastModifiedDate], [m].[Name], [m].[Notes]
+FROM [Mechanics] AS [m]
+ORDER BY [m].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+22:04:02 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+22:04:02 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+22:04:02 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+22:04:02 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+22:04:02 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/

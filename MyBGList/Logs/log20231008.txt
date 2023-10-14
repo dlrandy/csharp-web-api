@@ -1,0 +1,25 @@
+08:08:43 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+08:08:43 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+08:08:43 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+08:08:43 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+08:08:43 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+08:23:17 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+08:23:18 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+08:23:18 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+08:23:18 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+08:23:18 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+08:24:24 [INF] [MacBook-Pro #14 .NET ThreadPool Worker ] Get method started! [MacBook-Pro] [14].
+08:24:26 [INF] [MacBook-Pro #14 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+08:24:27 [INF] [MacBook-Pro #16 .NET ThreadPool Worker ] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BoardGames] AS [b]
+08:24:29 [INF] [MacBook-Pro #16 .NET ThreadPool Worker ] Executed DbCommand (137ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[AlternateNames], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[Designer], [b].[Flags], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+ORDER BY [b].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+08:50:09 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+08:50:09 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+08:50:09 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+08:50:09 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+08:50:09 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
