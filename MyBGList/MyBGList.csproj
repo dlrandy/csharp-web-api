@@ -24,6 +24,9 @@
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.1-dev-00968" />
     <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="8.0.0-rc.1.23421.29" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.0-rc.2.23480.2" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
   </ItemGroup>
 
   <ItemGroup>

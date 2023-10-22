@@ -8,7 +8,7 @@ using MyBGList.Attributes;
 using MyBGList.Constants;
 using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyBGList.Controllers;
 
@@ -95,7 +95,7 @@ public class BoardGameController : ControllerBase
         };
     }
 
-
+    [Authorize(Roles = RoleNames.Moderator)]
     [HttpPost(Name = "UpdateBoardGame")]
     //[ResponseCache(NoStore = true)]
     [ResponseCache(CacheProfileName = "NoCache")]
@@ -129,7 +129,7 @@ public class BoardGameController : ControllerBase
         };
 
     }
-
+    [Authorize(Roles = RoleNames.Administrator)]
     [HttpDelete(Name = "DeleteBoardGame")]
     [ResponseCache(NoStore = true)]
     public async Task<RestDTO<BoardGame[]?>> Delete(string ids)

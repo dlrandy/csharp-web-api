@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 namespace MyBGList.Models
 {
-	public class ApplicationDbContext:DbContext
+    public class ApplicationDbContext:IdentityDbContext<ApiUser>
 	{
 		public ApplicationDbContext(
 			DbContextOptions<ApplicationDbContext> options
@@ -68,6 +69,16 @@ namespace MyBGList.Models
             //    .HasForeignKey(f => f.CategoryId)
             //    .IsRequired()
             //    .OnDelete(DeleteBehavior.Cascade);
+
+
+            //// 修改默认的Identity生成的数据库表的名字
+            //modelBuilder.Entity<ApiUser>().ToTable("ApiUsers");
+            //modelBuilder.Entity<IdentityRole<string>>().ToTable("ApiRoles");
+            //modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("ApiRoleClaims");
+            //modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("ApiUserClaims");
+            //modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("ApiUserLogins");
+            //modelBuilder.Entity<IdentityUserRole<string>>().ToTable("ApiRoles");
+            //modelBuilder.Entity<IdentityUserToken<string>>().ToTable("ApiUserTokens");
 
 
         }

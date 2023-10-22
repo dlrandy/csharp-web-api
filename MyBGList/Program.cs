@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using MyBGList.Constants;
 using MyBGList.Models;
 using MyBGList.Swagger;
@@ -120,6 +126,27 @@ builder.Services.AddSwaggerGen(opts => {
     opts.ResolveConflictingActions(apiDesc => apiDesc.First());
     opts.ParameterFilter<SortOrderFilter>();
     opts.ParameterFilter<SortColumnFilter>();
+
+    opts.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme {
+        In = ParameterLocation.Header,
+        Description = "Please enter token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    });
+
+    opts.AddSecurityRequirement(new OpenApiSecurityRequirement {
+        {
+            new OpenApiSecurityScheme{
+                Reference = new OpenApiReference{
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
@@ -128,6 +155,59 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => {
     );
 
 });
+
+builder.Services.AddIdentity<ApiUser, IdentityRole>(options => {
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequiredLength = 12;
+
+}).AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddAuthentication(options => {
+
+    options.DefaultAuthenticateScheme = options.DefaultChallengeScheme = options.DefaultForbidScheme = options.DefaultScheme =
+    options.DefaultSignInScheme = options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
+
+}).AddJwtBearer(options => {
+
+    options.TokenValidationParameters = new TokenValidationParameters {
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JWT:Audience"],
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
+            )
+    };
+
+});
+// rbac 是检测是否为某个claim
+// cbac 基于policy 是检测是否是多个cliam中的一个或者同时多个claim
+// pbac 基于iRequirements 还能检测特定的值范围
+// rbac 实现不需要加下面的 
+// ......
+
+// CBAC
+builder.Services.AddAuthorization(options => {
+
+    // cbac
+    options.AddPolicy("ModeratorWithMobilePhone", policy => policy.RequireClaim(ClaimTypes.Role, RoleNames.Moderator).RequireClaim(ClaimTypes.MobilePhone));
+    // pbac
+    options.AddPolicy("MinAge18", policy =>
+        policy
+            .RequireAssertion(ctx =>
+                ctx.User.HasClaim(c => c.Type == ClaimTypes.DateOfBirth)
+                && DateTime.ParseExact(
+                    "yyyyMMdd",
+                    ctx.User.Claims.First(c =>
+                        c.Type == ClaimTypes.DateOfBirth).Value,
+                    System.Globalization.CultureInfo.InvariantCulture)
+                    >= DateTime.Now.AddYears(-18)));
+});
+
 
 builder.Services.AddResponseCaching(options => {
     options.MaximumBodySize = 32 * 1024 * 1024;
@@ -153,6 +233,7 @@ builder.Services.AddStackExchangeRedisCache(options => {
 //builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 //app.Environment.IsDevelopment()
@@ -217,7 +298,11 @@ app.UseCors();
 app.UseCors("AnyOrigin");
 
 app.UseResponseCaching();
+
+// 中间件的顺序会影响http的request pipeline
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.Use((context, next) => {
     //context.Response.Headers["cache-control"] = "no-cache, no-store";
     context.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
@@ -319,6 +404,25 @@ app.MapGet("/cache/test/2",
         //context.Response.Headers["cache-control"] = "no-cache, no-store";
         return Results.Ok();
     });
+
+app.MapGet("/auth/test/1", [Authorize] [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)]() => {
+
+    return Results.Ok("You are authorized!");
+});
+app.MapGet("/auth/test/2", [Authorize(Roles = RoleNames.Moderator)][EnableCors("AnyOrigin")][ResponseCache(NoStore = true)]
+() => { return Results.Ok("You are authorized!"); });
+app.MapGet("/auth/test/3", [Authorize(Roles = RoleNames.Administrator)][EnableCors("AnyOrigin")][ResponseCache(NoStore = true)]
+() => { return Results.Ok("You are authorized!"); });
+app.MapGet("/auth/test/4",
+    [Authorize(Roles = RoleNames.SuperAdmin)]
+[EnableCors("AnyOrigin")]
+[ResponseCache(NoStore = true)] () =>
+    {
+        return Results.Ok("You are authorized!");
+    });
+
+
+
 
 // controllers
 app.MapControllers().RequireCors("AnyOrigin");
