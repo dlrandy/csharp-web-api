@@ -27,6 +27,9 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.5.1" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.5.1" />
+    <PackageReference Include="HotChocolate.Data.EntityFramework" Version="13.5.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +44,7 @@
     <None Remove="Swagger\" />
     <None Remove="Constants\" />
     <None Remove="Extensions\" />
+    <None Remove="GraphQL\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
@@ -51,5 +55,6 @@
     <Folder Include="Swagger\" />
     <Folder Include="Constants\" />
     <Folder Include="Extensions\" />
+    <Folder Include="GraphQL\" />
   </ItemGroup>
 </Project>

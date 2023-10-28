@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyBGList.Constants;
+using MyBGList.GraphQL;
 using MyBGList.Models;
 using MyBGList.Swagger;
 using Serilog;
@@ -218,20 +219,28 @@ builder.Services.AddResponseCaching(options => {
 
 builder.Services.AddMemoryCache();
 
-//builder.Services.AddDistributedSqlServerCache(options => {
-//    options.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-//    options.SchemaName = "dbo";
-//    options.TableName = "AppCache";
-//});
-
-builder.Services.AddStackExchangeRedisCache(options => {
-
-    options.Configuration = builder.Configuration["Redis:ConnectionString"];
-
+builder.Services.AddDistributedSqlServerCache(options =>
+{
+    options.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    options.SchemaName = "dbo";
+    options.TableName = "AppCache";
 });
+
+//builder.Services.AddStackExchangeRedisCache(options => {
+
+//    options.Configuration = builder.Configuration["Redis:ConnectionString"];
+
+//});
 
 //builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
+builder.Services.AddGraphQLServer()
+    .AddAuthorization()
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>()
+    .AddProjections()
+    .AddFiltering()
+    .AddSorting();
 var app = builder.Build();
 
 
@@ -302,6 +311,7 @@ app.UseResponseCaching();
 // 中间件的顺序会影响http的request pipeline
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapGraphQL();
 
 app.Use((context, next) => {
     //context.Response.Headers["cache-control"] = "no-cache, no-store";

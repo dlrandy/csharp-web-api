@@ -9,6 +9,7 @@ using MyBGList.Constants;
 using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.Json.Serialization;
 
 namespace MyBGList.Controllers;
 
@@ -165,6 +166,47 @@ public class BoardGameController : ControllerBase
                             "self",
                             "DELETE"),
                 }
+        };
+    }
+
+    [HttpGet("{id}")]
+    [ResponseCache(CacheProfileName = "Any-60")]
+    public async Task<RestDTO<BoardGame?>> GetBoardGame(int id)
+    {
+        _logger.LogInformation(CustomLogEvents.BoardGamesController_Get,"GetBoardGame method started.");
+        BoardGame? result = null;
+        var cachekey = $"GetBoardGame-{id}";
+        if (!_memoryCache.TryGetValue<BoardGame>(cachekey, out result))
+        {
+            result = await _context.BoardGames
+                // eager loading
+                //.Include(it=>it.BoardGames_Domains)
+                //.Include(it=>it.BoardGames_Mechanics)
+                .FirstOrDefaultAsync(bg => bg.Id == id);
+            //var options = new JsonSerializerOptions
+            //{
+            //    //ReferenceHandler = ReferenceHandler.Preserve,
+            //    MaxDepth = 64
+            //};
+            //Console.WriteLine(result);
+            //var json = JsonSerializer.Serialize(result, options);
+
+            _memoryCache.Set(cachekey, result, new TimeSpan(0,0,30));
+        }
+
+        return new RestDTO<BoardGame?>() {
+            Data = result,
+            PageIndex = 0,
+            PageSize = 1,
+            RecordCount = result != null ? 1 : 0,
+            Links = new List<LinkDTO> {
+                new LinkDTO (
+                    Url.Action(null, "BoardGames", new { id}, Request.Scheme)!,
+                    "self",
+                    "GET"
+                    )
+            }
+
         };
     }
 

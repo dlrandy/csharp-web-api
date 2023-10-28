@@ -1,0 +1,56 @@
+09:02:39 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+09:02:39 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+09:02:39 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+09:02:39 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+09:02:39 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+09:10:49 [INF] [MacBook-Pro #8 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+09:10:50 [INF] [MacBook-Pro #8 .NET ThreadPool Worker ] Executed DbCommand (99ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [b].[Id], [b].[Name], [b].[Year]
+FROM [BoardGames] AS [b]
+ORDER BY [b].[Id]
+09:23:05 [INF] [MacBook-Pro #61 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+09:23:06 [WRN] [MacBook-Pro #61 .NET ThreadPool Worker ] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+09:23:07 [INF] [MacBook-Pro #62 .NET ThreadPool Worker ] Executed DbCommand (30ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Name], [t].[Year], [t0].[c], [t0].[Name], [t0].[BoardGameId], [t0].[DomainId], [t0].[Id], [t1].[c], [t1].[Name], [t1].[BoardGameId], [t1].[MechanicId], [t1].[Id]
+FROM (
+    SELECT TOP(@__p_0) [b].[Id], [b].[Name], [b].[Year]
+    FROM [BoardGames] AS [b]
+    ORDER BY [b].[Id]
+) AS [t]
+LEFT JOIN (
+    SELECT CAST(1 AS bit) AS [c], [d].[Name], [b0].[BoardGameId], [b0].[DomainId], [d].[Id]
+    FROM [BoardGames_Domains] AS [b0]
+    INNER JOIN [Domains] AS [d] ON [b0].[DomainId] = [d].[Id]
+) AS [t0] ON [t].[Id] = [t0].[BoardGameId]
+LEFT JOIN (
+    SELECT CAST(1 AS bit) AS [c], [m].[Name], [b1].[BoardGameId], [b1].[MechanicId], [m].[Id]
+    FROM [BoardGames_Mechanics] AS [b1]
+    INNER JOIN [Mechanics] AS [m] ON [b1].[MechanicId] = [m].[Id]
+) AS [t1] ON [t].[Id] = [t1].[BoardGameId]
+ORDER BY [t].[Id], [t0].[BoardGameId], [t0].[DomainId], [t0].[Id], [t1].[BoardGameId], [t1].[MechanicId]
+09:53:45 [INF] [MacBook-Pro #78 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+09:53:45 [INF] [MacBook-Pro #77 .NET ThreadPool Worker ] Executed DbCommand (10ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+09:53:46 [INF] [MacBook-Pro #81 .NET ThreadPool Worker ] Executed DbCommand (44ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+10:02:28 [INF] [MacBook-Pro #74 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+10:02:28 [INF] [MacBook-Pro #74 .NET ThreadPool Worker ] Executed DbCommand (10ms) [Parameters=[@__boardGameDTO_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[AlternateNames], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[Designer], [b].[Flags], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+WHERE [b].[Id] = @__boardGameDTO_Id_0
+10:02:28 [INF] [MacBook-Pro #75 .NET ThreadPool Worker ] Executed DbCommand (24ms) [Parameters=[@p16='?' (DbType = Int32), @p0='?' (Size = 200), @p1='?' (DbType = Int32), @p2='?' (Precision = 4) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = DateTime2), @p4='?' (Size = 200), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 200), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Precision = 4) (Scale = 2) (DbType = Decimal), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [BoardGames] SET [AlternateNames] = @p0, [BGGRank] = @p1, [ComplexityAverage] = @p2, [CreatedDate] = @p3, [Designer] = @p4, [Flags] = @p5, [LastModifiedDate] = @p6, [MaxPlayers] = @p7, [MinAge] = @p8, [MinPlayers] = @p9, [Name] = @p10, [OwnedUsers] = @p11, [PlayTime] = @p12, [RatingAverage] = @p13, [UsersRated] = @p14, [Year] = @p15
+WHERE [Id] = @p16;
+SELECT @@ROWCOUNT;
+10:07:43 [INF] [MacBook-Pro #69 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+10:07:43 [WRN] [MacBook-Pro #69 .NET ThreadPool Worker ] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+10:07:43 [INF] [MacBook-Pro #74 .NET ThreadPool Worker ] Executed DbCommand (5ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [b].[Name]
+FROM [BoardGames] AS [b]
+WHERE [b].[Id] = @__p_0
