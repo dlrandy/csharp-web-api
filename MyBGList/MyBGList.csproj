@@ -30,6 +30,15 @@
     <PackageReference Include="HotChocolate.AspNetCore" Version="13.5.1" />
     <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.5.1" />
     <PackageReference Include="HotChocolate.Data.EntityFramework" Version="13.5.1" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.58.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.59.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Grpc.Net.Client" Version="2.58.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.24.4" />
+    <PackageReference Include="Grpc.Net.Client.Web" Version="2.58.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.58.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +54,7 @@
     <None Remove="Constants\" />
     <None Remove="Extensions\" />
     <None Remove="GraphQL\" />
+    <None Remove="gRPC\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
@@ -56,5 +66,9 @@
     <Folder Include="Constants\" />
     <Folder Include="Extensions\" />
     <Folder Include="GraphQL\" />
+    <Folder Include="gRPC\" />
+  </ItemGroup>
+  <ItemGroup>
+      <Protobuf Include="grpc/grpc.proto" />
   </ItemGroup>
 </Project>

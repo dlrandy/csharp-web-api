@@ -1,0 +1,467 @@
+18:43:11 [ERR] [MacBook-Pro #95 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.", DebugException="System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.")
+ ---> System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.
+   at System.Net.Http.HttpConnectionPool.ThrowGetVersionException(HttpRequestMessage request, Int32 desiredVersion)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 30
+   at lambda_method219(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+18:49:46 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+18:49:46 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40443
+18:49:46 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+18:49:46 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+18:49:46 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+18:50:28 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+18:50:28 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40443
+18:50:28 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+18:50:28 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+18:50:28 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+18:55:46 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+18:55:46 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+18:55:46 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+18:55:46 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+18:55:46 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+18:56:17 [ERR] [MacBook-Pro #10 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.", DebugException="System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.")
+ ---> System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.
+   at System.Net.Http.HttpConnectionPool.ThrowGetVersionException(HttpRequestMessage request, Int32 desiredVersion)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 32
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+19:00:27 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+19:00:28 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40443
+19:00:28 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:00:28 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:00:28 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:03:25 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+19:03:25 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+19:03:25 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:03:25 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:03:25 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:03:46 [ERR] [MacBook-Pro #10 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.", DebugException="System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.")
+ ---> System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.
+   at System.Net.Http.HttpConnectionPool.ThrowGetVersionException(HttpRequestMessage request, Int32 desiredVersion)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 32
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+19:10:06 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+19:10:06 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+19:10:06 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:10:06 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:10:06 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:10:25 [ERR] [MacBook-Pro #10 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.", DebugException="System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.")
+ ---> System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+   at System.Net.Http.HttpConnectionPool.ReturnHttp2Connection(Http2Connection connection, Boolean isNewConnection)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading.PortableThreadPool.WorkerThread.WorkerThreadStart()
+   at System.Threading.Thread.StartCallback()
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 32
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+19:14:02 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+19:14:02 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+19:14:02 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:14:02 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:14:02 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:14:26 [ERR] [MacBook-Pro #9 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.", DebugException="System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.")
+ ---> System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+   at System.Net.Http.HttpConnectionPool.ReturnHttp2Connection(Http2Connection connection, Boolean isNewConnection)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(IAsyncStateMachineBox box, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(IAsyncStateMachineBox box, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(IAsyncStateMachineBox box, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetExistingTaskResult(Task`1 task, TResult result)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder.SetResult()
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading.PortableThreadPool.WorkerThread.WorkerThreadStart()
+   at System.Threading.Thread.StartCallback()
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 33
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+19:17:15 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+19:17:15 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+19:17:15 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:17:15 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:17:15 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:17:33 [ERR] [MacBook-Pro #8 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.", DebugException="System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.")
+ ---> System.Net.Http.HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionOrHigher while unable to establish HTTP/2 connection.
+   at System.Net.Http.HttpConnectionPool.ThrowGetVersionException(HttpRequestMessage request, Int32 desiredVersion)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 33
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+19:21:31 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+19:21:31 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40443
+19:21:32 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:21:32 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:21:32 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:25:31 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+19:25:31 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+19:25:31 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:25:31 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:25:31 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:26:05 [ERR] [MacBook-Pro #6 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.", DebugException="System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.")
+ ---> System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+   at System.Net.Http.HttpConnectionPool.ReturnHttp2Connection(Http2Connection connection, Boolean isNewConnection)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading.PortableThreadPool.WorkerThread.WorkerThreadStart()
+   at System.Threading.Thread.StartCallback()
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 32
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+19:27:58 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+19:27:58 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:9080
+19:27:58 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:27:58 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:27:58 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:28:57 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+19:28:58 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:9080
+19:28:58 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:28:58 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:28:58 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:39:12 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+19:39:12 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5001
+19:39:12 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:39:12 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:39:12 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:45:03 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+19:45:04 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5001
+19:45:04 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:45:04 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:45:04 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:47:04 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'https://localhost:40443, http://localhost:40080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+19:47:04 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5001
+19:47:04 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:47:04 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:47:04 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:54:03 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:40443
+19:54:03 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:40080
+19:54:03 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:54:03 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:54:03 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+19:54:17 [ERR] [MacBook-Pro #6 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: Connection refused (localhost:5001) SocketException: Connection refused", DebugException="System.Net.Http.HttpRequestException: Connection refused (localhost:5001)")
+ ---> System.Net.Http.HttpRequestException: Connection refused (localhost:5001)
+ ---> System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   --- End of inner exception stack trace ---
+   at Grpc.Net.Client.Internal.GrpcCall`2.GetResponseHeadersCoreAsync()
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 32
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+19:57:05 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5001
+19:57:05 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5002
+19:57:05 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+19:57:05 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+19:57:05 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:02:06 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5001
+20:02:06 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5002
+20:02:06 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:02:06 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:02:06 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:04:47 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5001
+20:04:47 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5002
+20:04:47 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:04:47 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:04:47 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:11:11 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5001, https://localhost:5002'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:11:12 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5001
+20:11:12 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:11:12 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:11:12 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:19:41 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:19:41 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:19:41 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:19:41 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:19:41 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:21:50 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:21:50 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:21:50 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:21:50 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:21:50 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:23:06 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5001'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:23:06 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:23:06 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:23:06 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:23:06 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:28:49 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:28:49 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:28:49 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:28:49 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:28:49 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:30:21 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5001'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:30:21 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:30:21 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:30:21 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:30:21 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:36:31 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5001'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:36:32 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:36:32 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:36:32 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:36:32 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:37:45 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5001'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:37:45 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:37:45 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:37:45 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:37:45 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:41:12 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5001'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:41:12 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:41:12 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:41:12 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:41:12 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:46:13 [WRN] [MacBook-Pro #1  ] Overriding address(es) 'http://localhost:5000, https://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+20:46:13 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:46:13 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:46:13 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:46:13 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:56:37 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:56:37 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+20:56:37 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:56:37 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:56:37 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+20:59:00 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:59:00 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+20:59:00 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:59:00 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:59:00 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+21:00:50 [INF] [MacBook-Pro #15 .NET ThreadPool Worker ] Request content-type of 'application/grpc-web' is not supported.
+21:00:50 [ERR] [MacBook-Pro #16 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Content-Type 'application/grpc-web' is not supported.")
+   at MyBGList.Controllers.GrpcController.GetBoardGame(Int32 id) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Controllers/GrpcController.cs:line 33
+   at lambda_method22(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+21:02:17 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+21:02:17 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+21:02:17 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+21:02:17 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+21:02:17 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+21:10:10 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+21:10:10 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+21:10:10 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+21:10:10 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+21:10:10 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+21:11:10 [INF] [MacBook-Pro #20 .NET ThreadPool Worker ] Entity Framework Core 6.0.21 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+21:11:10 [INF] [MacBook-Pro #6 .NET ThreadPool Worker ] Executed DbCommand (86ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[AlternateNames], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[Designer], [b].[Flags], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+WHERE [b].[Id] = @__request_Id_0

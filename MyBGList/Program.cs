@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyBGList.Constants;
 using MyBGList.GraphQL;
+using MyBGList.gRPC;
 using MyBGList.Models;
 using MyBGList.Swagger;
 using Serilog;
@@ -17,6 +19,14 @@ using Serilog.Sinks.MSSqlServer;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+//builder.WebHost.ConfigureKestrel(options =>
+//{
+//    // Setup a HTTP/2 endpoint without TLS.
+//    options.ListenLocalhost(5000, o => o.Protocols =
+//        HttpProtocols.Http2);
+//});
+
 builder.Logging
         .ClearProviders()
         .AddSimpleConsole()
@@ -241,6 +251,9 @@ builder.Services.AddGraphQLServer()
     .AddProjections()
     .AddFiltering()
     .AddSorting();
+
+builder.Services.AddGrpc();
+
 var app = builder.Build();
 
 
@@ -312,6 +325,9 @@ app.UseResponseCaching();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapGraphQL();
+
+app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
+app.MapGrpcService<GrpcService>();
 
 app.Use((context, next) => {
     //context.Response.Headers["cache-control"] = "no-cache, no-store";
