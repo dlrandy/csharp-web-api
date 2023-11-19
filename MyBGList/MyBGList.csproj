@@ -39,6 +39,7 @@
     <PackageReference Include="Google.Protobuf" Version="3.24.4" />
     <PackageReference Include="Grpc.Net.Client.Web" Version="2.58.0" />
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.58.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -71,4 +72,8 @@
   <ItemGroup>
       <Protobuf Include="grpc/grpc.proto" />
   </ItemGroup>
+  <PropertyGroup>
+      <GenerateDocumentationFile>true</GenerateDocumentationFile>
+      <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
 </Project>

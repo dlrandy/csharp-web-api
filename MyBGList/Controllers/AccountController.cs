@@ -37,8 +37,19 @@ namespace MyBGList.Controllers
             _signInManager = signInManager;
         }
 
+        /// <summary>
+        /// Register a new user.
+        /// </summary>
+        /// <param name="input">A DTO containing the user data.</param>
+        /// <returns>A 201 - Created Status Code in case of success.</returns>
+        /// <response code="201">User has been registered</response>
+        /// <response code="400">Invalid data</response>
+        /// <response code="500">An error occurred</response>
         [HttpPost]
         [ResponseCache(CacheProfileName = "NoCache")]
+        [ProducesResponseType(typeof(string), 201)]
+        [ProducesResponseType(typeof(BadRequestObjectResult), 400)]
+        [ProducesResponseType(typeof(ProblemDetails), 500)]
         public async Task<ActionResult> Register(RegisterDTO input) {
             try
             {
@@ -76,6 +87,11 @@ namespace MyBGList.Controllers
 
         }
 
+        /// <summary>
+        /// Performs a user login.
+        /// </summary>
+        /// <param name="input">A DTO containing  the user's credentials.</param>
+        /// <returns>The bearer token in JWT format.</returns>
         [HttpPost]
         [ResponseCache(CacheProfileName = "NoCache")]
         public async Task<ActionResult> Login(LoginDTO input)

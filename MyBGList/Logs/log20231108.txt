@@ -1,0 +1,20 @@
+20:22:52 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+20:22:52 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+20:22:52 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+20:22:52 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+20:22:52 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+21:46:50 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+21:46:50 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+21:46:50 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+21:46:50 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+21:46:50 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+22:09:47 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+22:09:47 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+22:09:47 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+22:09:47 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+22:09:47 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+22:18:55 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+22:18:56 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+22:18:56 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+22:18:56 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+22:18:56 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/

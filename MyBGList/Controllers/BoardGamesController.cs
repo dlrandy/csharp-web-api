@@ -10,6 +10,7 @@ using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using System.Text.Json.Serialization;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MyBGList.Controllers;
 
@@ -39,6 +40,10 @@ public class BoardGameController : ControllerBase
     //[ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
     //[ResponseCache(CacheProfileName = "Any-60")]
     [ResponseCache(CacheProfileName = "Client-120")]
+    [SwaggerOperation(
+        Summary = "Get a list of board games.",
+        Description = "Retrieves a list of board games " + " with custom paging, sorting, and filtering rules."
+        )]
     public async Task<RestDTO<BoardGame[]>> Get(
         //int pageIndex = 0,
         //[Range(1, 100)] int pageSize = 10,
@@ -52,7 +57,9 @@ public class BoardGameController : ControllerBase
         //    SortColumnValidator(typeof(BoardGameDTO))
         //] string? sortColumn = "Name",
         //string? filterQuery = null
-        [FromQuery] RequestDTO<BoardGameDTO> input
+        [FromQuery]
+        [SwaggerParameter("A DTO object that can be used to customize the data-retrieval parameters.")]
+        RequestDTO<BoardGameDTO> input
         )
     {
         _logger.LogInformation(CustomLogEvents.BoardGamesController_Get,"Get method started! [{MachineName}] [{ThreadId}].",
@@ -100,6 +107,10 @@ public class BoardGameController : ControllerBase
     [HttpPost(Name = "UpdateBoardGame")]
     //[ResponseCache(NoStore = true)]
     [ResponseCache(CacheProfileName = "NoCache")]
+    [SwaggerOperation(
+        Summary = "Update a board game.",
+        Description = "Updates the board game's data."
+        )]
     public async Task<RestDTO<BoardGame?>> Post(BoardGameDTO model) {
         var boardgame = await _context.BoardGames
             .Where(b => b.Id == model.Id)
@@ -133,6 +144,9 @@ public class BoardGameController : ControllerBase
     [Authorize(Roles = RoleNames.Administrator)]
     [HttpDelete(Name = "DeleteBoardGame")]
     [ResponseCache(NoStore = true)]
+    [SwaggerOperation(
+        Summary = "Delets a board game.",
+        Description = "Delete Board game from the database")]
     public async Task<RestDTO<BoardGame[]?>> Delete(string ids)
     {
         var idArray = ids.Split(',').Select(x => int.Parse(x));
@@ -171,7 +185,10 @@ public class BoardGameController : ControllerBase
 
     [HttpGet("{id}")]
     [ResponseCache(CacheProfileName = "Any-60")]
-    public async Task<RestDTO<BoardGame?>> GetBoardGame(int id)
+    [SwaggerOperation(
+       Summary = "Get a single board game.",
+        Description = "Retrieves a single board game with the given Id.")]
+    public async Task<RestDTO<BoardGame?>> GetBoardGame([CustomKeyValue("x-test-3","value 3")]int id)
     {
         _logger.LogInformation(CustomLogEvents.BoardGamesController_Get,"GetBoardGame method started.");
         BoardGame? result = null;

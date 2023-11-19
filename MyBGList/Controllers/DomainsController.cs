@@ -27,7 +27,12 @@ namespace MyBGList.Controllers
             _context = context;
             _logger = logger;
         }
-
+        /// <summary>
+        /// Get a list of domains
+        /// </summary>
+        /// <remarks>Retrieves a list of domains with custom paging, sorting, and filtering rules.</remarks>
+        /// <param name="input">A DTO object that can be used to customize some retrieval parameters.</param>
+        /// <returns>A RestDTO object containing a list of domains.</returns>
         [HttpGet(Name = "GetDomains")]
         [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
         [ManualValidationFilter]
@@ -87,6 +92,7 @@ namespace MyBGList.Controllers
         }
 
         [Authorize(Roles = RoleNames.Moderator)]
+        [ApiExplorerSettings(IgnoreApi = true)]
         [HttpPost(Name = "UpdateDomain")]
         [ResponseCache(NoStore = true)]
         [ManualValidationFilter]
@@ -150,6 +156,7 @@ namespace MyBGList.Controllers
 
 
         [Authorize(Roles = RoleNames.Administrator)]
+        [ApiExplorerSettings(IgnoreApi = true)]
         [HttpDelete(Name = "DeleteDomain")]
         [ResponseCache(NoStore = true)]
         public async Task<RestDTO<Domain?>> Delete(int id)

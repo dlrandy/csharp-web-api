@@ -16,7 +16,8 @@ using MyBGList.Models;
 using MyBGList.Swagger;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
-
+using System.Reflection;
+using Swashbuckle.AspNetCore.Annotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -133,6 +134,10 @@ builder.Services.AddControllers(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opts => {
+    opts.EnableAnnotations();
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    opts.IncludeXmlComments(System.IO.Path.Combine(AppContext.BaseDirectory, xmlFilename));
+
 
     opts.ResolveConflictingActions(apiDesc => apiDesc.First());
     opts.ParameterFilter<SortOrderFilter>();
@@ -158,6 +163,11 @@ builder.Services.AddSwaggerGen(opts => {
             Array.Empty<string>()
         }
     });
+    opts.OperationFilter<AuthRequirementFilter>();
+    opts.DocumentFilter<CustomDocumentFilter>();
+    opts.RequestBodyFilter<PasswordRequestFilter>();
+    opts.RequestBodyFilter<UsernameRequestFilter>();
+    opts.SchemaFilter<CustomKeyValueFilter>();
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
@@ -431,7 +441,14 @@ app.MapGet("/cache/test/2",
         return Results.Ok();
     });
 
-app.MapGet("/auth/test/1", [Authorize] [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)]() => {
+app.MapGet("/auth/test/1", [Authorize] [EnableCors("AnyOrigin")][ResponseCache(NoStore = true)]
+[SwaggerOperation(
+ Tags = new[] { "Auth"},
+    Summary = "Auth test #1 (authenticated users).",
+    Description = "Returns 200 - OK if called by an authenticated user regardless of its role(s).")]
+    [SwaggerResponse(StatusCodes.Status200OK, "Authorized")]
+    [SwaggerResponse(StatusCodes.Status401Unauthorized, "Not authorized")]
+() => {
 
     return Results.Ok("You are authorized!");
 });

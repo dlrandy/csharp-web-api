@@ -1,0 +1,42 @@
+21:01:02 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+21:01:02 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+21:01:02 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+21:01:02 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+21:01:02 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+21:14:05 [ERR] [MacBook-Pro #20 .NET ThreadPool Worker ] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - MyBGList.Controllers.AccountController.Login (MyBGList). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - MyBGList.DTO.LoginDTO. See inner exception
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'key')
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at MyBGList.Swagger.CustomKeyValueFilter.Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter.Apply(OpenApiSchema schema, SchemaFilterContext context) in /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/Swagger/CustomKeyValueFilter.cs:line 24
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.ApplyFilters(OpenApiSchema schema, Type type, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForParameter(Type modelType, SchemaRepository schemaRepository, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyFromBodyParameter(ApiDescription apiDescription, SchemaRepository schemaRepository, ApiParameterDescription bodyParameter)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBody(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+21:15:39 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+21:15:40 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+21:15:40 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+21:15:40 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+21:15:40 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/
+21:27:25 [INF] [MacBook-Pro #1  ] Now listening on: http://localhost:5000
+21:27:25 [INF] [MacBook-Pro #1  ] Now listening on: https://localhost:5001
+21:27:25 [INF] [MacBook-Pro #1  ] Application started. Press Ctrl+C to shut down.
+21:27:25 [INF] [MacBook-Pro #1  ] Hosting environment: Development
+21:27:25 [INF] [MacBook-Pro #1  ] Content root path: /Users/xingjiabin/Documents/dev_env/MyBGList/MyBGList/

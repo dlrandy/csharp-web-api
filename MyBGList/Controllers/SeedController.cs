@@ -12,7 +12,8 @@ using System.Globalization;
 
 namespace MyBGList.Controllers
 {
-	[ApiController]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [ApiController]
 	[Route("[controller]/[action]")]
 	public class SeedController:ControllerBase
 	{

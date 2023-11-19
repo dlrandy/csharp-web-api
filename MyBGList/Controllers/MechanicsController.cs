@@ -10,6 +10,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using MyBGList.Extensions;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MyBGList.Controllers
 {
@@ -35,9 +36,15 @@ namespace MyBGList.Controllers
         [HttpGet(Name = "GetMechanics")]
         //[ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
         [ResponseCache(Location = ResponseCacheLocation.Client, Duration = 120)]
+        [SwaggerOperation(
+            Summary = "Get a list of mechanics.",
+            Description = "Retrieves a list of mechanics with custom paging, sorting, and filtering rules."
+            )]
         [ManualValidationFilter]
         public async Task<RestDTO<Mechanic[]>> Get(
-            [FromQuery] RequestDTO<MechanicDTO> input)
+        [FromQuery]
+        [SwaggerParameter("A DTO object that can be used to customize some retrieval parameters.")]
+        RequestDTO<MechanicDTO> input)
         {
             var query = _context.Mechanics.AsQueryable();
             if (!string.IsNullOrEmpty(input.FilterQuery))
@@ -111,7 +118,10 @@ namespace MyBGList.Controllers
         [Authorize(Policy = "ModeratorWithMobilePhone")]
         [HttpDelete(Name = "DeleteMechanic")]
         [ResponseCache(NoStore = true)]
-        public async Task<RestDTO<Mechanic?>> Delete(int id)
+        public async Task<RestDTO<Mechanic?>> Delete(
+            [CustomKeyValue("x-test-4", "value 4")]
+            [CustomKeyValue("x-test-5", "value 5")]
+        int id)
         {
             var mechanic = await _context.Mechanics
                 .Where(b => b.Id == id)
